@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,10 @@ class ProductFactory extends Factory
     {
         return [
             'category_id' => Category::factory(),
-        'title' => fake()->word(),
-        'description' => fake()->text(),
-        "price" => fake()->numberBetween(0, 1000000),
-        "image" => fake()->imageUrl(),
+            'title' => fake()->word(),
+            'description' => fake()->text(),
+            "price" => fake()->numberBetween(0, 1000000),
+            "image" => fake()->imageUrl(),
         ];
     }
 }

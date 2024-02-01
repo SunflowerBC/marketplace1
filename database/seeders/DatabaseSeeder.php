@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use  App\Models\Category;
+use App\Models\Color;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(CategorySeeder::class);
+        $this->call(ColorSeeder::class);
+        $this->call(SizeSeeder::class);
     }
 }

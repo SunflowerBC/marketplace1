@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SizeSeeder extends Seeder
 {
@@ -12,6 +13,14 @@ class SizeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $sizes = [
+           'XXS', 'XS', 'S', 'M', 'L', 'XL'
+        ];
+
+        foreach ($sizes as $size){
+            DB::table('sizes')->insert([
+                'title' => $size,
+            ]);
+        }
     }
 }
