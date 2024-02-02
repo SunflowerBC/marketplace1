@@ -14,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $products = Product::query();
+        $products = $products->where("description", "like", "%comodi%");
+        return $products->paginate();
     }
 
     /**
