@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductCollection;
+use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
@@ -15,8 +17,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::query();
-        $products = $products->where("description", "like", "%comodi%");
-        return $products->paginate();
+
+//        $products = $products->where("price", "<", "50000");
+//        $products = $products->where('title', '=', 'nam');
+
+//        $products = $products->where([["price", "<", 50000],["price", ">", 2000]]);
+
+        return new ProductCollection($products->paginate());
     }
 
     /**
@@ -40,7 +47,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return new  ProductResource($product);
     }
 
     /**
