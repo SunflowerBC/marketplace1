@@ -8,22 +8,34 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Service\ProductQuery;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::query();
 
+        $filter = new ProductQuery();
+        $queryItem = $filter->transform($request); // [[column,operator,value]]
+        $orderItem = $filter->transformOrder($request); // [column,type]
+
+        $product = Product::query();
+
+        if (count($queryItem) == 0 && count($orderItem) == 0) {
+            return new ProductCollection($product->paginate());
+        }
+//        $products = Product::query();
+//        $query = new ProductQuery();
+//        $query->trasform($request);
 //        $products = $products->where("price", "<", "50000");
 //        $products = $products->where('title', '=', 'nam');
 
 //        $products = $products->where([["price", "<", 50000],["price", ">", 2000]]);
-
-        return new ProductCollection($products->paginate());
+        return new ProductCollection($product->where($queryItem)->orderBy(...$orderItem)->paginate());
     }
 
     /**
