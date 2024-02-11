@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Models\Color;
-use App\Http\Requests\StoreColorRequest;
-use App\Http\Requests\UpdateColorRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSizeRequest;
+use App\Http\Requests\UpdateSizeRequest;
+use App\Models\Size;
 
-class ColorController extends Controller
+class SizeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class ColorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreColorRequest $request)
+    public function store(StoreSizeRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class ColorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Color $color)
+    public function show(Size $size)
     {
         //
     }
@@ -43,7 +44,7 @@ class ColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Color $color)
+    public function edit(Size $size)
     {
         //
     }
@@ -51,7 +52,7 @@ class ColorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateColorRequest $request, Color $color)
+    public function update(UpdateSizeRequest $request, Size $size)
     {
         //
     }
@@ -59,7 +60,7 @@ class ColorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Color $color)
+    public function destroy(Size $size)
     {
         //
     }

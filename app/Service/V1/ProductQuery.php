@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Service\V1;
 
 use Illuminate\Http\Request;
 
@@ -41,9 +41,7 @@ class ProductQuery
                 continue;
             }
 
-//            if (isset($this->columnMap[$param]){
-//                continue;
-//            }
+
             $column = $this->columnMap[$param];
 
             foreach ($operators as $operator){

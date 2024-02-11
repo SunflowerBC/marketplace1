@@ -18,5 +18,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource("products", \App\Http\Controllers\ProductController::class)->only(["index", "show"]);
-Route::resource("categories", \App\Http\Controllers\CategoryController::class)->only(["index", "show"]);
+Route::resource("products", \App\Http\Controllers\API\V1\ProductController::class)->only(["index", "show"]);
+Route::resource("categories", \App\Http\Controllers\API\V1\CategoryController::class)->only(["index", "show"]);
+
+
+Route::post('login', [\App\Http\Controllers\API\V1\LoginRegistrationController::class, "login"]);
+Route::get('register', [\App\Http\Controllers\API\V1\LoginRegistrationController::class, "register"]);
+Route::get('logout', [\App\Http\Controllers\API\V1\LoginRegistrationController::class, "logout"]);

@@ -17,7 +17,8 @@ class SizeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "title" => fake()->hexColor(),
+            "value" => fake()->hexColor()
         ];
     }
 }

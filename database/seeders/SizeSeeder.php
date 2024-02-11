@@ -20,6 +20,7 @@ class SizeSeeder extends Seeder
         foreach ($sizes as $size){
             DB::table('sizes')->insert([
                 'title' => $size,
+                'value' => $size
             ]);
         }
     }
