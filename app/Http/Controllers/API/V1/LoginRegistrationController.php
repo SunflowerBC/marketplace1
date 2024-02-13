@@ -39,7 +39,7 @@ class LoginRegistrationController extends Controller
     {
         $data = $request->only(["name", "email", "password"]);
         $validator = Validator::make($data, [
-            "name" => "requires|string",
+            "name" => "required|string",
             "email"=>"required|string|unique:users",
             "password"=>"required|string|min:8"
         ]);
