@@ -10,6 +10,6 @@ class Size extends Model
     use HasFactory;
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class, "product_size");
     }
 }
